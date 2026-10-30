@@ -3,7 +3,7 @@
 ![cloud-thumb](https://github.com/user-attachments/assets/f1660c58-e10e-4344-b298-bc83b8c9d0cb)
 
 **Author:** The French Monkey (TFMSTYLE)  
-**Version:** 1.0.0  
+**Version:** 1.0.1  
 
 ---
 
@@ -135,3 +135,21 @@ Removes the selected cloud object and any associated children or helper objects.
 - Adjust **Bottom Flatten** to control the realism of the underside shape.  
 - Enable **Live Update** to preview parameter effects interactively, then disable it for performance.  
 - Clouds can be shaded using volumetric or subsurface materials for realistic lighting.
+
+---
+
+## Install
+
+Needs Blender 4.2 or later. Get the zip from [tfmstyle.com](https://tfmstyle.com), then in Blender open Edit > Preferences > Get Extensions, open the menu at the top right and pick Install from Disk.
+
+To build the zip yourself, run this in the repo folder:
+
+```bash
+blender --command extension build
+```
+
+---
+
+## License
+
+GPL 3.0 or later. See [LICENSE](LICENSE).
