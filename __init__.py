@@ -4,7 +4,7 @@
 bl_info = {
     "name": "Cloud",
     "author": "The French Monkey",
-    "version": (1, 0, 1),
+    "version": (1, 0, 2),
     "blender": (4, 2, 0),
     "location": "View3D > Sidebar > Cloud",
     "description": "Generate parametric cloud",
@@ -19,6 +19,11 @@ from math import radians
 from mathutils import Matrix, Vector
 import mathutils.noise as noise
 import random
+
+try:
+    from . import relay_updater
+except ImportError:  # the Addon Collection has its own updates
+    relay_updater = None
 
 # ------------------------------------------------------------------------
 # Cloud Geometry Generators
@@ -396,6 +401,8 @@ class VIEW3D_PT_cloud_generator(bpy.types.Panel):
     bl_category = "Cloud"
 
     def draw(self, context):
+        if relay_updater:
+            relay_updater.draw(self.layout)
         layout = self.layout
         p = context.scene.cgen_props
         o = context.object
@@ -459,11 +466,15 @@ classes = (
 )
 
 def register():
+    if relay_updater:
+        relay_updater.register("blender-cloud")
     for c in classes:
         bpy.utils.register_class(c)
     bpy.types.Scene.cgen_props = bpy.props.PointerProperty(type=CGProperties)
 
 def unregister():
+    if relay_updater:
+        relay_updater.unregister()
     for c in reversed(classes):
         bpy.utils.unregister_class(c)
     del bpy.types.Scene.cgen_props
