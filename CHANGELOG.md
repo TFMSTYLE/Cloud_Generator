@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+- The Blob Radius and Blob Displace sliders now stop at 10 and 20, because higher values can take a long time. You can still type values up to 50 and 200
+
 ## 1.0.2
 
 - Added update checks: when a new version is published on Relay, an Update button appears in this panel. Nothing goes online when Allow Online Access is off, and Blender store installs keep updating through the store

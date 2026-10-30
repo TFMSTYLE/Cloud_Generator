@@ -4,7 +4,7 @@
 bl_info = {
     "name": "Cloud",
     "author": "The French Monkey",
-    "version": (1, 0, 2),
+    "version": (1, 0, 3),
     "blender": (4, 2, 0),
     "location": "View3D > Sidebar > Cloud",
     "description": "Generate parametric cloud",
@@ -338,7 +338,7 @@ class CGProperties(bpy.types.PropertyGroup):
 
     seed: bpy.props.IntProperty(name="Seed", default=1, min=0, max=999999, description="Random seed for blob placement", update=update_cloud)
     blob_count: bpy.props.IntProperty(name="Blobs", default=28, min=1, max=50, description="Number of spheres composing the cloud", update=update_cloud)
-    base_radius: bpy.props.FloatProperty(name="Blob Radius", default=0.6, min=0.05, max=50.0, subtype='DISTANCE', description="Average radius of each blob before merging", update=update_cloud)
+    base_radius: bpy.props.FloatProperty(name="Blob Radius", default=0.6, min=0.05, max=50.0, soft_max=10.0, subtype='DISTANCE', description="Average radius of each blob before merging", update=update_cloud)
     spread: bpy.props.FloatProperty(name="Spread", default=2.0, min=0.1, max=100.0, subtype='DISTANCE', description="Overall size (radius) of the cloud cluster", update=update_cloud)
     elongation: bpy.props.FloatProperty(name="Elongation", default=0.25, min=0.0, max=10.0, description="Stretch the cloud along a horizontal axis for natural shapes", update=update_cloud)
     segments: bpy.props.IntProperty(name="Blob Segments", default=16, min=8, max=32, description="Base sphere segment count (higher = smoother, slower)", update=update_cloud)
@@ -351,7 +351,7 @@ class CGProperties(bpy.types.PropertyGroup):
     elong_use_angle: bpy.props.BoolProperty(name="Use Elongation Angle", default=False, description="Use a fixed horizontal angle for elongation instead of a random direction", update=update_cloud)
     elong_angle: bpy.props.FloatProperty(name="Elongation Angle", default=0.0, subtype='ANGLE', min=0.0, max=math.tau, description="Elongation direction in the XY plane (0° = +X, 90° = +Y)", update=update_cloud)
     noise_scale: bpy.props.FloatProperty(name="Noise Scale", default=0.5, min=0.05, max=5.0, description="Controls the scale of the displacement noise pattern", update=update_cloud)
-    blob_displace: bpy.props.FloatProperty(name="Blob Displace", default=0.3, min=0.0, max=200.0, description="Adds random displacement to each blob to break up the spherical look", update=update_cloud)
+    blob_displace: bpy.props.FloatProperty(name="Blob Displace", default=0.3, min=0.0, max=200.0, soft_max=20.0, description="Adds random displacement to each blob to break up the spherical look", update=update_cloud)
 
 # ------------------------------------------------------------------------
 # Operators

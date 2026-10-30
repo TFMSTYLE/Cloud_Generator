@@ -3,7 +3,7 @@
 ![cloud-thumb](https://github.com/user-attachments/assets/f1660c58-e10e-4344-b298-bc83b8c9d0cb)
 
 **Author:** The French Monkey (TFMSTYLE)  
-**Version:** 1.0.2  
+**Version:** 1.0.3  
 
 ---
 
@@ -45,7 +45,8 @@ Higher values produce more detailed and complex shapes.
 
 ### Blob Radius
 Base radius of each individual blob before merging.  
-Controls the apparent “chunkiness” of the cloud.
+Controls the apparent “chunkiness” of the cloud.  
+The slider stops at 10. Type a value to go up to 50, which takes longer to generate.
 
 ---
 
@@ -111,7 +112,8 @@ Larger values create broader, softer shapes; smaller values add finer detail.
 
 ### Blob Displace
 Adds random displacement to each blob’s surface before merging.  
-Breaks up the uniform spherical look to create more natural cloud variation.
+Breaks up the uniform spherical look to create more natural cloud variation.  
+The slider stops at 20. Type a value to go up to 200, which takes longer to generate.
 
 ---
 
